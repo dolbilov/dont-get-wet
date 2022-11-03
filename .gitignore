@@ -2,6 +2,9 @@
 .editorconfig
 .prettierrc.json
 
+# webstorm service folder
+.idea
+
 # Created by https://www.toptal.com/developers/gitignore/api/node,macos,windows,visualstudiocode,webstorm+all,web
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,macos,windows,visualstudiocode,webstorm+all,web
 
