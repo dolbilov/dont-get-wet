@@ -38,13 +38,19 @@
     }
   }
 
-  &__place {
-    @include font-setting(400, 36px, 43px, $text-color);
-  }
-
-  &__temperature-place {
-    grid-area: temperature-place;
-    @include font-setting(400, 128px, 152px, $text-color);
+  &__text {
+    &_type {
+      &_place {
+        @include font-setting(400, 36px, 43px, $text-color);
+      }
+      &_temperature-place {
+        grid-area: temperature-place;
+        @include font-setting(400, 128px, 152px, $text-color);
+      }
+      &_caption {
+        @include font-setting(400, 20px, 24px, $text-color);
+      }
+    }
   }
 
   &__container {
@@ -63,9 +69,5 @@
         gap: 5px;
       }
     }
-  }
-
-  &__caption {
-    @include font-setting(400, 20px, 24px, $text-color);
   }
 }
