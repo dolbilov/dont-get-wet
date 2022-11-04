@@ -11,15 +11,26 @@
   </head>
   <body class="body">
     <div class="container container__main-container">
-      <div class="card card_size_big">
+      <div class="card card_size_large">
         <div class="card__container card__container_type_place">
-          <div class="card__icon card__icon_type_place"></div>
-          <p class="card__text card__text_type_place">Москва</p>
+          <div class="card__icon card__icon_type_geo"></div>
+          <p class="card__city-name">Москва</p>
         </div>
-        <p class="card__text card__text_type_temperature-place">+12°</p>
+        <p class="card__temperature-value">+12°</p>
         <div class="card__container card__container_type_weather">
           <div class="card__icon card__icon_type_weather"></div>
-          <p class="card__text card__text_type_caption">Облачно</p>
+          <p class="card__caption">Облачно</p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="card card_size_small">
+          <p class="card__date">
+            сегодня,
+            <span class="card__date card__date_weight_light">2 ноября</span>
+          </p>
+          <p class="card__temperature-value card__temperature-value_size_small">+12°</p>
+          <div class="card__icon card__icon_type_weather card__icon_size_small"></div>
         </div>
       </div>
     </div>

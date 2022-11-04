@@ -3,14 +3,14 @@
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   display: grid;
+  grid-template: repeat(2, min-content) / repeat(2, 1fr);
+  align-items: center;
 
   &_size {
-    &_big {
+    &_large {
       background: rgba(191, 187, 182, 0.4);
       max-width: 450px;
       padding: 30px 34px 31px 20px;
-      align-items: center;
-      grid-template: repeat(2, min-content) / repeat(2, 1fr);
       grid-template-areas:
         "container-place ."
         "temperature-place container-weather";
@@ -20,35 +20,63 @@
 
     &_small {
       background: rgba(172, 177, 180, 0.4);
+      max-width: 250px;
+      padding: 20px 21px 44px 20px;
+      grid-template-areas:
+        "date date"
+        "temperature-place icon-weather";
+      row-gap: 24px;
     }
   }
 
   &__icon {
     &_type {
-      &_place {
+      &_geo {
         @include background-setting(url(../image/icon_geo.svg), contain);
         width: 22px;
         height: 27px;
       }
       &_weather {
+        grid-area: icon-weather;
         @include background-setting(url(../image/icon_weather.svg), contain);
         width: 124px;
         height: 67px;
       }
     }
+    &_size {
+      &_small {
+        width: 81px;
+        height: 43px;
+      }
+    }
   }
 
-  &__text {
-    &_type {
-      &_place {
-        @include font-setting(400, 36px, 43px, $text-color);
+  &__city-name {
+    @include font-setting(400, 36px, 43px, $text-color);
+  }
+
+  &__temperature-value {
+    grid-area: temperature-place;
+    @include font-setting(400, 128px, 152px, $text-color);
+    &_size {
+      &_small {
+        @include font-setting(400, 64px, 76px, $text-color);
       }
-      &_temperature-place {
-        grid-area: temperature-place;
-        @include font-setting(400, 128px, 152px, $text-color);
-      }
-      &_caption {
-        @include font-setting(400, 20px, 24px, $text-color);
+    }
+  }
+
+  &__caption {
+    @include font-setting(400, 20px, 24px, $text-color);
+  }
+
+  &__date {
+    grid-area: date;
+    display: flex;
+    flex-direction: column;
+    @include font-setting(400, 32px, 38px, $text-color);
+    &_weight {
+      &_light {
+        font-weight: 300;
       }
     }
   }
