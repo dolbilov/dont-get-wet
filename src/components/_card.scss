@@ -1,0 +1,71 @@
+.card {
+  box-sizing: border-box;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  display: grid;
+
+  &_size {
+    &_big {
+      background: rgba(191, 187, 182, 0.4);
+      max-width: 450px;
+      padding: 30px 34px 31px 20px;
+      align-items: center;
+      grid-template: repeat(2, min-content) / repeat(2, 1fr);
+      grid-template-areas:
+        "container-place ."
+        "temperature-place container-weather";
+      column-gap: 16px;
+      row-gap: 64px;
+    }
+
+    &_small {
+      background: rgba(172, 177, 180, 0.4);
+    }
+  }
+
+  &__icon {
+    &_type {
+      &_place {
+        @include background-setting(url(../image/icon_geo.svg), contain);
+        width: 22px;
+        height: 27px;
+      }
+      &_weather {
+        @include background-setting(url(../image/icon_weather.svg), contain);
+        width: 124px;
+        height: 67px;
+      }
+    }
+  }
+
+  &__place {
+    @include font-setting(400, 36px, 43px, $text-color);
+  }
+
+  &__temperature-place {
+    grid-area: temperature-place;
+    @include font-setting(400, 128px, 152px, $text-color);
+  }
+
+  &__container {
+    &_type {
+      &_weather {
+        grid-area: container-weather;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      &_place {
+        grid-area: container-place;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+    }
+  }
+
+  &__caption {
+    @include font-setting(400, 20px, 24px, $text-color);
+  }
+}
