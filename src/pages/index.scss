@@ -1,1 +1,10 @@
 @import "../base/normalize";
+
+/* Подключить шрифты */
+@import "../base/typography";
+
+/* Подключить стили блока body */
+@import "../components/body";
+
+/* Подключить стили блока container */
+@import "../components/container";
