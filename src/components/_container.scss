@@ -1,3 +1,11 @@
-.container {
+.container {  
   max-width: 770px;
+  
+
+  &__main-container {    
+    margin-left: 20rem;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+  }
 }

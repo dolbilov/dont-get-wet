@@ -3,6 +3,15 @@
 /* Подключить шрифты */
 @import "../base/typography";
 
+/* Подключить миксины */
+@import "../abstracts/mixins";
+
+/* Подключить переменные */
+@import "../abstracts/variable";
+
+/* Подключить стили блока html */
+@import '../components/html';
+
 /* Подключить стили блока body */
 @import "../components/body";
 
