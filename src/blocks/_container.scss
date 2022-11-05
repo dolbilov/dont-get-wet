@@ -1,0 +1,17 @@
+.container {
+  max-width: 770px;
+
+  &__main-container {
+    margin-left: 20rem;
+    margin-top: 6.2rem;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__slider {
+    display: flex;
+    gap: 10px;
+  }
+}

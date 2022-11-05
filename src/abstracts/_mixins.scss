@@ -1,0 +1,17 @@
+/* Настройки шрифта */
+@mixin font-setting($fweight, $fsize, $flineheight, $color) {
+    margin: 0;
+    font-weight: $fweight;
+    font-size: $fsize;
+    line-height: $flineheight;
+    color: $color;
+  }
+  
+  /* Настройки фонового изображения */
+  @mixin background-setting($url, $size) {
+    background-image: $url;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: $size;
+  }
+  

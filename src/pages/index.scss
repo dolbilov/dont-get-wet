@@ -1,1 +1,22 @@
 @import "../base/normalize";
+
+/* Подключить шрифты */
+@import "../base/typography";
+
+/* Подключить миксины */
+@import "../abstracts/mixins";
+
+/* Подключить переменные */
+@import "../abstracts/variable";
+
+/* Подключить стили блока html */
+@import '../blocks/html';
+
+/* Подключить стили блока body */
+@import "../blocks/body";
+
+/* Подключить стили блока container */
+@import "../blocks/container";
+
+/* Подключить стили блока card */
+@import "../blocks/card";
