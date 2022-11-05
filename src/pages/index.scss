@@ -10,13 +10,13 @@
 @import "../abstracts/variable";
 
 /* Подключить стили блока html */
-@import '../components/html';
+@import '../blocks/html';
 
 /* Подключить стили блока body */
-@import "../components/body";
+@import "../blocks/body";
 
 /* Подключить стили блока container */
-@import "../components/container";
+@import "../blocks/container";
 
 /* Подключить стили блока card */
-@import "../components/card";
+@import "../blocks/card";
