@@ -4,7 +4,7 @@ export class Api {
 
   static _getUrl = (latitude, longitude) => {
     const startDate =  new Date();
-    startDate.setDate(startDate.getDate() + 1);
+    startDate.setDate(startDate.getDate());
 
     const endDate = new Date(startDate);
     endDate.setDate(startDate.getDate() + 2);
@@ -17,7 +17,7 @@ export class Api {
   static getWeatherData = (coords) => {
     return fetch(this._getUrl(coords.latitude, coords.longitude))
       .then(res => {
-        if (res.ok) return res.json();
+        if (res.ok) return res.json();4
         return Promise.reject(res);
       });
   }
