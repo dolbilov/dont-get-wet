@@ -1,4 +1,5 @@
 import { Api } from "./api";
+import { getFormattedDate } from "./date";
 
 export class Weather {
   static _descriptions = {
@@ -45,10 +46,25 @@ export class Weather {
     this._dailyWeatherCodes = null;
   }
 
-  getWeather() {
-    Api.getWeatherData(this._coords)
+  static _getDescriptionFromWeatherCode = (code) => this._descriptions[code];
+
+  _showWeather(markupElements) {
+    // show current temperature
+    markupElements.currentTemperatureText.textContent = Math.round(this._currentTemperature) + "°";
+    markupElements.currentWeatherDescription.textContent = Weather._getDescriptionFromWeatherCode(this._currentWeatherCode);
+
+    // show 3 next day forecast
+    for (let i = 0; i < 3; i++) {
+      const avgTemperature = Math.round((this._dailyMaxTemperatures[i] + this._dailyMinTemperatures[i]) / 2);
+      markupElements.temperatureTexts[i].textContent = avgTemperature + '°';
+
+      markupElements.dataTexts[i].textContent = getFormattedDate(this._dailyDates[i]);
+    }
+  }
+
+  getAndShowWeather(markupElements) {
+    const promise = Api.getWeatherData(this._coords)
       .then(data => {
-        console.log(data);
         const currentWeather = data.current_weather;
         this._currentTemperature = currentWeather.temperature;
         this._currentWeatherCode = currentWeather.weathercode;
@@ -60,12 +76,9 @@ export class Weather {
         this._dailyWeatherCodes = dailyInfo.weathercode;
       })
       .catch(Api.handleError);
-  }
 
-  showWeather(markupElements) {
-    // TODO: show weather info
+    Promise.all([promise]).then(() => {
+      this._showWeather(markupElements);
+    })
   }
-
-  _getDescriptionFromWeatherCode = (code) => Weather.descriptions[code];
 }
-
