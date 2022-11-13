@@ -74,4 +74,4 @@ Feel free to check [issues page](https://github.com/dolbilov/dont-get-wet/issues
 ## 📝 **License**
 
 Copyright &copy; 2022 Kirill Dolbilov & Konstantin Buzunov & Kirill Rybakov  
-This project is [GNU GPL v3.0](https://github.com/dolbilov/IMayBeDepressed/blob/main/LICENSE) licensed.
+This project is [GNU GPL v3.0](https://github.com/dolbilov/dont-get-wet/blob/main/LICENSE) licensed.
