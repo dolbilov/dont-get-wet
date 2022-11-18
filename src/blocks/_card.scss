@@ -1,5 +1,6 @@
 .card {
   box-sizing: border-box;
+  background: $bg-card;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   display: grid;
@@ -8,18 +9,17 @@
 
   &_size {
     &_large {
-      background: rgba(191, 187, 182, 0.4);
-      max-width: 450px;
-      padding: 30px 34px 31px 20px;
+      min-width: 220px;
+      max-width: 220px;
+      padding: 15px 22px 32px;
       grid-template-areas:
-        "container-place ."
+        "container-place container-place"
         "temperature-place container-weather";
-      column-gap: 16px;
-      row-gap: 64px;
+      column-gap: 5px;
+      row-gap: 20px;
     }
 
     &_small {
-      background: rgba(172, 177, 180, 0.4);
       max-width: 250px;
       padding: 20px 21px 44px 20px;
       grid-template-areas:
@@ -30,12 +30,12 @@
   }
 
   &__icon {
-    &_type {      
+    &_type {
       &_weather {
         grid-area: icon-weather;
         @include background-setting(url(../image/icon_weather.svg), contain);
-        width: 124px;
-        height: 67px;
+        width: 59px;
+        height: 42px;
       }
     }
     &_size {
@@ -47,12 +47,13 @@
   }
 
   &__city-name {
-    @include font-setting(400, 36px, 43px, $text-color);
+    @include font-setting(400, 18px, 21px, $text-color);
+    letter-spacing: 0.05em;
   }
 
   &__temperature-value {
     grid-area: temperature-place;
-    @include font-setting(400, 128px, 152px, $text-color);
+    @include font-setting(300, 48px, 59px, $text-color);
     &_size {
       &_small {
         @include font-setting(400, 64px, 76px, $text-color);
@@ -61,14 +62,14 @@
   }
 
   &__caption {
-    @include font-setting(400, 20px, 24px, $text-color);
+    @include font-setting(400, 14px, 90%, $text-color);
   }
 
   &__date {
     grid-area: date;
     display: flex;
     flex-direction: column;
-    @include font-setting(400, 32px, 38px, $text-color);
+    @include font-setting(400, 18px, 22px, $text-color);
     &_weight {
       &_light {
         font-weight: 300;
@@ -88,8 +89,7 @@
       &_place {
         grid-area: container-place;
         display: flex;
-        align-items: center;
-        gap: 5px;
+        flex-direction: column;
       }
     }
   }
