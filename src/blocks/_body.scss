@@ -3,5 +3,5 @@
   padding: 0 10px;
   box-sizing: border-box;
   height: 100vh;
-  @include background-setting(url(../image/background.png), cover);
+  background: linear-gradient(180deg, #19559D 0%, #8EB1DB 75.52%);
 }
