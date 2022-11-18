@@ -1,4 +1,4 @@
-export class Coords {
+export default class Coords {
   constructor() {
     this.coords = { latitude: 55.7558, longitude: 37.6176 }
   }
