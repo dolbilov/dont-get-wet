@@ -30,12 +30,7 @@
   }
 
   &__icon {
-    &_type {
-      &_geo {
-        @include background-setting(url(../image/icon_geo.svg), contain);
-        width: 22px;
-        height: 27px;
-      }
+    &_type {      
       &_weather {
         grid-area: icon-weather;
         @include background-setting(url(../image/icon_weather.svg), contain);
