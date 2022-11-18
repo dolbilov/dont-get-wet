@@ -1,7 +1,9 @@
 .body {
-  font-family: "Rubik", Arial, Helvetica, sans-serif;
-  padding: 0 10px;
+  font-family: "Rubik", Arial, Helvetica, sans-serif;  
   box-sizing: border-box;
   height: 100vh;
   background: linear-gradient(180deg, #19559D 0%, #8EB1DB 75.52%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

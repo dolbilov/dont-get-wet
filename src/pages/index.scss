@@ -10,7 +10,7 @@
 @import "../abstracts/variable";
 
 /* Подключить стили блока html */
-@import '../blocks/html';
+@import "../blocks/html";
 
 /* Подключить стили блока body */
 @import "../blocks/body";
@@ -20,3 +20,12 @@
 
 /* Подключить стили блока card */
 @import "../blocks/card";
+
+/* Подключить стили блока title */
+@import "../blocks/title";
+
+/* Подключить стили блока subtitle */
+@import "../blocks/subtitle";
+
+/* Подключить стили блока footer */
+@import "../blocks/footer";
