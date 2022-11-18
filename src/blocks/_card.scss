@@ -4,7 +4,6 @@
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   display: grid;
-  grid-template: repeat(2, min-content) / repeat(2, 1fr);
   align-items: center;
 
   &_size {
@@ -12,11 +11,13 @@
       min-width: 220px;
       max-width: 220px;
       padding: 15px 22px 32px;
+      grid-template: repeat(4, min-content) / repeat(2, 1fr);
       grid-template-areas:
-        "container-place container-place"
-        "temperature-place container-weather";
+        "city-name city-name"
+        "date date"
+        "temperature-place icon-weather"
+        "delta-temperature weather";
       column-gap: 5px;
-      row-gap: 20px;
     }
 
     &_small {
@@ -32,6 +33,7 @@
   &__icon {
     &_type {
       &_weather {
+        margin-top: 20px;
         grid-area: icon-weather;
         @include background-setting(url(../image/icon_weather.svg), contain);
         width: 59px;
@@ -47,6 +49,7 @@
   }
 
   &__city-name {
+    grid-area: city-name;
     @include font-setting(400, 18px, 21px, $text-color);
     letter-spacing: 0.05em;
   }
@@ -54,6 +57,7 @@
   &__temperature-value {
     grid-area: temperature-place;
     @include font-setting(300, 48px, 59px, $text-color);
+    margin-top: 20px;
     &_size {
       &_small {
         @include font-setting(400, 64px, 76px, $text-color);
@@ -62,7 +66,18 @@
   }
 
   &__caption {
-    @include font-setting(400, 14px, 90%, $text-color);
+    &_type {
+      &_weather {
+        grid-area: weather;
+        @include font-setting(400, 14px, 90%, $text-color);
+      }
+      &_delta-temperature {
+        grid-area: delta-temperature;
+        @include font-setting(700, 16px, 20px, $text-color);
+        letter-spacing: 0.02em;
+        opacity: 0.7;
+      }
+    }
   }
 
   &__date {
@@ -73,23 +88,6 @@
     &_weight {
       &_light {
         font-weight: 300;
-      }
-    }
-  }
-
-  &__container {
-    &_type {
-      &_weather {
-        grid-area: container-weather;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      &_place {
-        grid-area: container-place;
-        display: flex;
-        flex-direction: column;
       }
     }
   }
