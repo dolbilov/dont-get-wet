@@ -28,13 +28,18 @@
       grid-template-areas:
         "date date"
         "temperature-place icon-weather"
-        "delta-temperature delta-temperature";      
+        "delta-temperature delta-temperature";
+
+      @media screen and (max-width: 768px) {
+        min-width: 220px;
+        max-width: 220px;
+      }
     }
   }
 
   &__icon {
     &_type {
-      &_weather {        
+      &_weather {
         grid-area: icon-weather;
         @include background-setting(url(../image/icon_weather.svg), contain);
         margin-top: 20px;
@@ -47,6 +52,12 @@
         margin-top: 15px;
         width: 41px;
         height: 44px;
+
+        @media screen and (max-width: 768px) {
+          margin-top: 20px;
+          width: 59px;
+          height: 42px;
+        }
       }
     }
   }
@@ -60,11 +71,15 @@
   &__temperature-value {
     grid-area: temperature-place;
     @include font-setting(300, 48px, 59px, $text-color);
-    margin-top: 20px;    
+    margin-top: 20px;
     &_size {
       &_small {
         @include font-setting(400, 36px, 44px, $text-color);
         margin-top: 15px;
+        @media screen and (max-width: 768px) {
+          @include font-setting(300, 48px, 59px, $text-color);
+          margin-top: 20px;
+        }
       }
     }
   }
@@ -89,11 +104,11 @@
     grid-area: date;
     display: flex;
     flex-direction: column;
-    @include font-setting(400, 18px, 22px, $text-color);    
+    @include font-setting(400, 18px, 22px, $text-color);
 
     &_position {
       &_small-card {
-        @include font-setting(400, 16px, 19px, $text-color);        
+        @include font-setting(400, 16px, 19px, $text-color);
       }
     }
 
