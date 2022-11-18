@@ -21,29 +21,32 @@
     }
 
     &_small {
-      max-width: 250px;
-      padding: 20px 21px 44px 20px;
+      min-width: 170px;
+      max-width: 170px;
+      padding: 15px 20px 21px;
+      grid-template: repeat(3, min-content) / repeat(2, 1fr);
       grid-template-areas:
         "date date"
-        "temperature-place icon-weather";
-      row-gap: 24px;
+        "temperature-place icon-weather"
+        "delta-temperature delta-temperature";      
     }
   }
 
   &__icon {
     &_type {
-      &_weather {
-        margin-top: 20px;
+      &_weather {        
         grid-area: icon-weather;
         @include background-setting(url(../image/icon_weather.svg), contain);
+        margin-top: 20px;
         width: 59px;
         height: 42px;
       }
     }
     &_size {
       &_small {
-        width: 81px;
-        height: 43px;
+        margin-top: 15px;
+        width: 41px;
+        height: 44px;
       }
     }
   }
@@ -57,10 +60,11 @@
   &__temperature-value {
     grid-area: temperature-place;
     @include font-setting(300, 48px, 59px, $text-color);
-    margin-top: 20px;
+    margin-top: 20px;    
     &_size {
       &_small {
-        @include font-setting(400, 64px, 76px, $text-color);
+        @include font-setting(400, 36px, 44px, $text-color);
+        margin-top: 15px;
       }
     }
   }
@@ -73,6 +77,7 @@
       }
       &_delta-temperature {
         grid-area: delta-temperature;
+        font-family: "Calibri";
         @include font-setting(700, 16px, 20px, $text-color);
         letter-spacing: 0.02em;
         opacity: 0.7;
@@ -84,7 +89,14 @@
     grid-area: date;
     display: flex;
     flex-direction: column;
-    @include font-setting(400, 18px, 22px, $text-color);
+    @include font-setting(400, 18px, 22px, $text-color);    
+
+    &_position {
+      &_small-card {
+        @include font-setting(400, 16px, 19px, $text-color);        
+      }
+    }
+
     &_weight {
       &_light {
         font-weight: 300;
