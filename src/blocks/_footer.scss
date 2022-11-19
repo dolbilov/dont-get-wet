@@ -1,0 +1,43 @@
+.footer {
+  background-color: $bg-footer;
+  padding: 50px 0 40px;
+
+  &__text {
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__social {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__links {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__icon {
+    width: 19px;
+    height: 19px;
+    @include background-setting(url(../image/social.svg), contain);
+  }
+
+  &__link {
+    text-decoration: none;
+    @include font-setting(300, 16px, 19px, $text-color);
+    opacity: 0.8;
+  }
+}

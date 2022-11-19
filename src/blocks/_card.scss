@@ -1,100 +1,120 @@
 .card {
   box-sizing: border-box;
+  background: $bg-card;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   display: grid;
-  grid-template: repeat(2, min-content) / repeat(2, 1fr);
   align-items: center;
 
   &_size {
     &_large {
-      background: rgba(191, 187, 182, 0.4);
-      max-width: 450px;
-      padding: 30px 34px 31px 20px;
+      min-width: 220px;
+      max-width: 220px;
+      padding: 15px 22px 32px;
+      grid-template: repeat(4, min-content) / repeat(2, 1fr);
       grid-template-areas:
-        "container-place ."
-        "temperature-place container-weather";
-      column-gap: 16px;
-      row-gap: 64px;
+        "city-name city-name"
+        "date date"
+        "temperature-place icon-weather"
+        "delta-temperature weather";
+      column-gap: 5px;
     }
 
     &_small {
-      background: rgba(172, 177, 180, 0.4);
-      max-width: 250px;
-      padding: 20px 21px 44px 20px;
+      min-width: 170px;
+      max-width: 170px;
+      padding: 15px 20px 21px;
+      grid-template: repeat(3, min-content) / repeat(2, 1fr);
       grid-template-areas:
         "date date"
-        "temperature-place icon-weather";
-      row-gap: 24px;
+        "temperature-place icon-weather"
+        "delta-temperature delta-temperature";
+
+      @media screen and (max-width: 768px) {
+        min-width: 220px;
+        max-width: 220px;
+      }
     }
   }
 
   &__icon {
     &_type {
-      &_geo {
-        @include background-setting(url(../image/icon_geo.svg), contain);
-        width: 22px;
-        height: 27px;
-      }
       &_weather {
         grid-area: icon-weather;
         @include background-setting(url(../image/icon_weather.svg), contain);
-        width: 124px;
-        height: 67px;
+        margin-top: 20px;
+        width: 59px;
+        height: 42px;
       }
     }
     &_size {
       &_small {
-        width: 81px;
-        height: 43px;
+        margin-top: 15px;
+        width: 41px;
+        height: 44px;
+
+        @media screen and (max-width: 768px) {
+          margin-top: 20px;
+          width: 59px;
+          height: 42px;
+        }
       }
     }
   }
 
   &__city-name {
-    @include font-setting(400, 36px, 43px, $text-color);
+    grid-area: city-name;
+    @include font-setting(400, 18px, 21px, $text-color);
+    letter-spacing: 0.05em;
   }
 
   &__temperature-value {
     grid-area: temperature-place;
-    @include font-setting(400, 128px, 152px, $text-color);
+    @include font-setting(300, 48px, 59px, $text-color);
+    margin-top: 20px;
     &_size {
       &_small {
-        @include font-setting(400, 64px, 76px, $text-color);
+        @include font-setting(400, 36px, 44px, $text-color);
+        margin-top: 15px;
+        @media screen and (max-width: 768px) {
+          @include font-setting(300, 48px, 59px, $text-color);
+          margin-top: 20px;
+        }
       }
     }
   }
 
   &__caption {
-    @include font-setting(400, 20px, 24px, $text-color);
+    &_type {
+      &_weather {
+        grid-area: weather;
+        @include font-setting(400, 14px, 90%, $text-color);
+      }
+      &_delta-temperature {
+        grid-area: delta-temperature;
+        font-family: "Calibri";
+        @include font-setting(700, 16px, 20px, $text-color);
+        letter-spacing: 0.02em;
+        opacity: 0.7;
+      }
+    }
   }
 
   &__date {
     grid-area: date;
     display: flex;
     flex-direction: column;
-    @include font-setting(400, 32px, 38px, $text-color);
+    @include font-setting(400, 18px, 22px, $text-color);
+
+    &_position {
+      &_small-card {
+        @include font-setting(400, 16px, 19px, $text-color);
+      }
+    }
+
     &_weight {
       &_light {
         font-weight: 300;
-      }
-    }
-  }
-
-  &__container {
-    &_type {
-      &_weather {
-        grid-area: container-weather;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      &_place {
-        grid-area: container-place;
-        display: flex;
-        align-items: center;
-        gap: 5px;
       }
     }
   }
