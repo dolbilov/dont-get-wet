@@ -36,5 +36,20 @@ export const months = [
   "October", "November", "December"
 ];
 
-export const markupElements = {};
+const largeCard = document.querySelector('.card.card_size_large');
+const smallCardsContainer = document.querySelector('.container.container__small-cards');
+
+export const markupElements = {
+  currentCity: largeCard.querySelector('.card__city-name'),
+  currentDate: largeCard.querySelector('.card__date.card__date_weight_light'),
+  currentTemperature: largeCard.querySelector('.card__temperature-value'),
+  currentWeatherIcon: largeCard.querySelector('.card__icon.card__icon_type_weather'),
+  currentWeatherType: largeCard.querySelector('.card__caption.card__caption_type_weather'),
+  currentMinMaxTemperature: largeCard.querySelector('.card__caption.card__caption_type_delta-temperature'),
+
+  dailyDates: smallCardsContainer.querySelectorAll('.card__date.card__date_position_small-card.card__date_weight_light'),
+  dailyTemperatures: smallCardsContainer.querySelectorAll('.card__temperature-value.card__temperature-value_size_small'),
+  dailyWeatherIcons: smallCardsContainer.querySelectorAll('.card__icon.card__icon_type_weather.card__icon_size_small'),
+  dailyMinMaxTemperatures: smallCardsContainer.querySelectorAll('.card__caption.card__caption_type_delta-temperature'),
+};
 
