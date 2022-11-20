@@ -1,14 +1,16 @@
 export default class DropdownList {
-  constructor(dropdown) {
+  constructor(dropdown, cityCoords) {
     this._dropdown = dropdown;
+    this._cityCoords = cityCoords;
     this._dropdownContainer = document.querySelector(`.${this._dropdown}`);
     this._dropdownButton =
       this._dropdownContainer.querySelector(".dropdown__button");
     this._dropdownList =
       this._dropdownContainer.querySelector(".dropdown__select");
-    this._currenPosition = null;
+    this.currenPosition = "Moscow";
     this._openDropdownList = this._openDropdownList.bind(this);
     this._closeDropdownList = this._closeDropdownList.bind(this);
+    this.getCurrenCoord = this.getCurrenCoord.bind(this);
   }
 
   _openDropdownList() {
@@ -36,10 +38,14 @@ export default class DropdownList {
 
   _changeCurrenPlace(evt) {
     if (evt.target.classList.contains("dropdown__option")) {
-      this._currenPosition = evt.target.textContent;
-      this._dropdownButton.textContent = this._currenPosition;      
-      this._closeDropdownList();
+      this.currenPosition = evt.target.textContent;
+      this._dropdownButton.textContent = this.currenPosition;
+      this._closeDropdownList();      
     }
+  }
+
+  getCurrenCoord() {    
+    return this._cityCoords[this.currenPosition.split(" ").join("")];
   }
 
   setEventListener() {

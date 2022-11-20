@@ -7,7 +7,7 @@ import * as constants from "../utils/constants";
 import Api from "../components/Api";
 import DropdownList from "../components/DropdownList.js";
 
-const dropdownList = new DropdownList("dropdown");
+const dropdownList = new DropdownList("dropdown", constants.cityCoords);
 
 dropdownList.setEventListener();
 
