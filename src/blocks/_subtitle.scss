@@ -1,8 +1,7 @@
 .subtitle {
   &_place {
     &_footer {
-      @include font-setting(300, 16px, 19px, $text-color);
-      opacity: 0.8;
+      @include font-setting(300, 16px, 19px, $text-color, 0.8);      
     }
   }
 }

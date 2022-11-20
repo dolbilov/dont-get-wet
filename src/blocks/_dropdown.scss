@@ -1,0 +1,44 @@
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  &__button {
+    margin: 0;
+    padding: 12px 20px;
+    border: 0;
+    max-width: 1025px;
+    min-width: 220px;
+    background-color: $bg-dropdown-btn;
+    @include font-setting(400, 16px, 19px, $text-color, 0.6);
+    text-align: start;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $bg-dropdown-btn-hover;
+    }
+  }
+
+  &__select {
+    margin: 0;
+    padding: 4px 0;
+    list-style: none;
+    border-radius: 15px;
+    background-color: $bg-dropdown-select;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden
+  }
+
+  &__option {
+    @include font-setting(400, 16px, 19px, $text-color, 0.6);
+    padding: 0 20px;
+    cursor: pointer;
+    &:hover {
+      background-color: $bg-dropdown-btn-hover;
+    }
+  }
+}

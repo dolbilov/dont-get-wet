@@ -64,20 +64,20 @@
 
   &__city-name {
     grid-area: city-name;
-    @include font-setting(400, 18px, 21px, $text-color);
+    @include font-setting(400, 18px, 21px, $text-color, 1);
     letter-spacing: 0.05em;
   }
 
   &__temperature-value {
     grid-area: temperature-place;
-    @include font-setting(300, 48px, 59px, $text-color);
+    @include font-setting(300, 48px, 59px, $text-color, 1);
     margin-top: 20px;
     &_size {
       &_small {
-        @include font-setting(400, 36px, 44px, $text-color);
+        @include font-setting(400, 36px, 44px, $text-color, 1);
         margin-top: 15px;
         @media screen and (max-width: 768px) {
-          @include font-setting(300, 48px, 59px, $text-color);
+          @include font-setting(300, 48px, 59px, $text-color, 1);
           margin-top: 20px;
         }
       }
@@ -88,19 +88,18 @@
     &_type {
       &_weather {
         grid-area: weather;
-        @include font-setting(400, 14px, 90%, $text-color);
+        @include font-setting(400, 14px, 90%, $text-color, 1);
       }
       &_delta-temperature {
         grid-area: delta-temperature;
         font-family: "Roboto";
-        @include font-setting(700, 16px, 19px, $text-color);
-        letter-spacing: 0.02em;
-        opacity: 0.7;
+        @include font-setting(700, 16px, 19px, $text-color, 0.7);
+        letter-spacing: 0.02em;        
       }
     }
     &_font-size {
       &_small {
-        @include font-setting(700, 14px, 16px, $text-color);
+        @include font-setting(700, 14px, 16px, $text-color, 0.7);
       }
     }
   }
@@ -109,11 +108,11 @@
     grid-area: date;
     display: flex;
     flex-direction: column;
-    @include font-setting(400, 18px, 22px, $text-color);
+    @include font-setting(400, 18px, 22px, $text-color, 1);
 
     &_position {
       &_small-card {
-        @include font-setting(400, 16px, 19px, $text-color);
+        @include font-setting(400, 16px, 19px, $text-color, 1);
       }
     }
 
