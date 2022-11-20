@@ -47,6 +47,7 @@ export const markupElements = {
   currentWeatherType: largeCard.querySelector(".card__caption.card__caption_type_weather"),
   currentMinMaxTemperature: largeCard.querySelector(".card__caption.card__caption_type_delta-temperature"),
 
+  dailyWeekdays: smallCardsContainer.querySelectorAll(".card__weekday"),
   dailyDates: smallCardsContainer.querySelectorAll(".card__date.card__date_position_small-card.card__date_weight_light"),
   dailyTemperatures: smallCardsContainer.querySelectorAll(".card__temperature-value.card__temperature-value_size_small"),
   dailyWeatherIcons: smallCardsContainer.querySelectorAll(".card__icon.card__icon_type_weather.card__icon_size_small"),
