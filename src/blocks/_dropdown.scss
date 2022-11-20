@@ -7,6 +7,7 @@
   @media screen and (max-width: 768px) {
     max-width: 220px;
   }
+  position: relative;
 
   &__button {
     margin: 0;
@@ -30,12 +31,17 @@
     margin: 0;
     padding: 4px 0;
     list-style: none;
+    width: 100%;
     border-radius: 15px;
     background-color: $bg-dropdown-select;
     display: flex;
     flex-direction: column;
     gap: 10px;
     overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    top: 45px;
+    left: 0;
 
     &_close {
       display: none;

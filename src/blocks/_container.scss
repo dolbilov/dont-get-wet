@@ -10,6 +10,7 @@
 
     @media screen and (max-width: 768px) {
       gap: 10px;
+      align-items: center;
     }
   }
 
@@ -23,7 +24,7 @@
   }
 
   &__footer {
-    margin-left: 20rem;
+    margin: 0 20rem;
     display: flex;
 
     @media screen and (max-width: 768px) {

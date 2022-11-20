@@ -95,6 +95,8 @@
         font-family: "Roboto";
         @include font-setting(700, 16px, 19px, $text-color, 0.7);
         letter-spacing: 0.02em;
+        position: relative;
+        z-index: 0;
       }
     }
     &_font-size {
