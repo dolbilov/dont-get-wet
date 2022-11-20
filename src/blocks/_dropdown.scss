@@ -36,6 +36,10 @@
     flex-direction: column;
     gap: 10px;
     overflow: hidden;
+
+    &_close {
+      display: none;
+    }
   }
 
   &__option {
