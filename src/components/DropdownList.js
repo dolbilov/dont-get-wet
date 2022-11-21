@@ -1,7 +1,9 @@
 export default class DropdownList {
-  constructor(dropdown, cityCoords) {
+  constructor(dropdown, cityCoords, onChangeHandler) {
     this._dropdown = dropdown;
     this._cityCoords = cityCoords;
+    this._onChangeHandler = onChangeHandler;
+
     this._dropdownContainer = document.querySelector(`.${this._dropdown}`);
     this._dropdownButton =
       this._dropdownContainer.querySelector(".dropdown__button");
@@ -54,6 +56,9 @@ export default class DropdownList {
     });
     this._dropdownList.addEventListener("click", (evt) => {
       this._changeCurrentPlace(evt);
+
+      const currentCoords = this.getCurrentCoords();
+      this._onChangeHandler(currentCoords);
     });
   }
 }
