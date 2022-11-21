@@ -2,7 +2,7 @@ import { descriptions, months } from "../utils/constants";
 
 export default class Weather {
   constructor(weatherData) {
-    console.log(weatherData);
+    this._currentCity = weatherData.current_city;
     this._currentTemperature = weatherData.current_weather.temperature;
     this._currentWeatherCode = weatherData.current_weather.weathercode;
     this._currentDate = new Date(weatherData.current_weather.time);
@@ -21,7 +21,7 @@ export default class Weather {
     //markupElements.currentMinMaxTemperature.textContent = `${Math.round(this._)} / ${}`;
     markupElements.currentWeatherType.textContent = this._getDescriptionFromWeatherCode(this._currentWeatherCode);
     // TODO: setup icon for today
-    // TODO: setup city
+    markupElements.currentCity.textContent = this._currentCity;
 
     this._getAverageTemperatures();
 

@@ -7,19 +7,25 @@ import * as constants from "../utils/constants";
 import Api from "../components/Api";
 import DropdownList from "../components/DropdownList.js";
 
-const dropdownList = new DropdownList("dropdown", constants.cityCoords);
+const dropdownList = new DropdownList("dropdown", constants.cityCoords, updateForecast);
+const coordsObject = new Coords();
+const api = new Api();
+
+
+function updateForecast(coords) {
+  api
+    .getWeatherData(coords)
+    .then((data) => {
+      data.current_city = dropdownList.currentPosition;
+      const weather = new Weather(data);
+      weather.showWeather(constants.markupElements);
+    })
+    .catch(api.handleError);
+}
+
 
 dropdownList.setEventListener();
 
-const coordsObject = new Coords();
 coordsObject.getUserCoords();
 const userCoords = coordsObject.coords;
-
-const api = new Api();
-api
-  .getWeatherData(userCoords)
-  .then((data) => {
-    const weather = new Weather(data);
-    weather.showWeather(constants.markupElements);
-  })
-  .catch(api.handleError);
+updateForecast(userCoords);
