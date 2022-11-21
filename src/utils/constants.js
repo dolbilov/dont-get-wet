@@ -26,7 +26,7 @@ export const descriptions = {
   86: "Heavy snow showers",
   95: "Slight or moderate thunderstorm",
   96: "Thunderstorm with slight hail",
-  99: "Thunderstorm with heavy hail",
+  99: "Thunderstorm with heavy hail"
 };
 
 export const months = [
@@ -41,7 +41,7 @@ export const months = [
   "September",
   "October",
   "November",
-  "December",
+  "December"
 ];
 
 export const cityCoords = {
@@ -54,7 +54,7 @@ export const cityCoords = {
   Chelyabinsk: { latitude: 55.1599, longitude: 61.4025 },
   Samara: { latitude: 53.1958, longitude: 50.1002 },
   Omsk: { latitude: 54.9893, longitude: 73.3682 },
-  RostovonDon: { latitude: 47.222, longitude: 39.7203 },
+  RostovonDon: { latitude: 47.222, longitude: 39.7203 }
 };
 
 const largeCard = document.querySelector(".card.card_size_large");
@@ -64,7 +64,7 @@ const smallCardsContainer = document.querySelector(
 
 export const markupElements = {
   currentCity: largeCard.querySelector(".card__city-name"),
-  currentDate: largeCard.querySelector(".card__date.card__date_weight_light"),
+  currentDate: largeCard.querySelector(".card__date.card__date_weight_light.card__date-text"),
   currentTemperature: largeCard.querySelector(".card__temperature-value"),
   currentWeatherIcon: largeCard.querySelector(
     ".card__icon.card__icon_type_weather"
@@ -88,5 +88,5 @@ export const markupElements = {
   ),
   dailyMinMaxTemperatures: smallCardsContainer.querySelectorAll(
     ".card__caption.card__caption_type_delta-temperature"
-  ),
+  )
 };
