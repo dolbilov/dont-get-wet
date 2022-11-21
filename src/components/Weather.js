@@ -21,7 +21,7 @@ export default class Weather {
     //markupElements.currentMinMaxTemperature.textContent = `${Math.round(this._)} / ${}`;
     markupElements.currentWeatherType.textContent = this._getDescriptionFromWeatherCode(this._currentWeatherCode);
     // TODO: setup icon for today
-    markupElements.currentCity.textContent = this._currentCity;
+    // markupElements.currentCity.textContent = this._currentCity;
 
     this._getAverageTemperatures();
 
