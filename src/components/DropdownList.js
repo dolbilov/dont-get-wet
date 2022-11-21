@@ -7,7 +7,7 @@ export default class DropdownList {
       this._dropdownContainer.querySelector(".dropdown__button");
     this._dropdownList =
       this._dropdownContainer.querySelector(".dropdown__select");
-    this.currenPosition = "Moscow";
+    this.currentPosition = "Moscow";
     this._openDropdownList = this._openDropdownList.bind(this);
     this._closeDropdownList = this._closeDropdownList.bind(this);
     this.getCurrentCoords = this.getCurrentCoords.bind(this);
@@ -38,14 +38,14 @@ export default class DropdownList {
 
   _changeCurrentPlace(evt) {
     if (evt.target.classList.contains("dropdown__option")) {
-      this.currenPosition = evt.target.textContent;
-      this._dropdownButton.textContent = this.currenPosition;
+      this.currentPosition = evt.target.textContent;
+      this._dropdownButton.textContent = this.currentPosition;
       this._closeDropdownList();
     }
   }
 
   getCurrentCoords() {
-    return this._cityCoords[this.currenPosition.split(" ").join("")];
+    return this._cityCoords[this.currentPosition.split(" ").join("")];
   }
 
   setEventListener() {
