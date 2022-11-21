@@ -1,10 +1,11 @@
 /* Настройки шрифта */
-@mixin font-setting($fweight, $fsize, $flineheight, $color) {
+@mixin font-setting($fweight, $fsize, $flineheight, $color, $opacity) {
     margin: 0;
     font-weight: $fweight;
     font-size: $fsize;
     line-height: $flineheight;
     color: $color;
+    opacity: $opacity;
   }
   
   /* Настройки фонового изображения */
