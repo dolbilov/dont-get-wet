@@ -1,5 +1,15 @@
 import { descriptions, months } from "../utils/constants";
 
+const clearDayIcon = new URL("../images/weather-icons/clear_day.svg", import.meta.url);
+const clearNightIcon = new URL("../images/weather-icons/clear_night.svg", import.meta.url);
+const cloudyIcon = new URL("../images/weather-icons/cloudy.svg", import.meta.url);
+const fogIcon = new URL("../images/weather-icons/fog.svg", import.meta.url);
+const rainIcon = new URL("../images/weather-icons/rain.svg", import.meta.url);
+const rainfallIcon = new URL("../images/weather-icons/rainfall.svg", import.meta.url);
+const snowIcon = new URL("../images/weather-icons/snow.svg", import.meta.url);
+const snowfallIcon = new URL("../images/weather-icons/snowfall.svg", import.meta.url);
+const thunderstormIcon = new URL("../images/weather-icons/thunderstorm.svg", import.meta.url);
+
 export default class Weather {
   constructor(weatherData) {
     this._currentCity = weatherData.current_city;
@@ -20,7 +30,8 @@ export default class Weather {
     // TODO: setup min and max temperatures for today
     //markupElements.currentMinMaxTemperature.textContent = `${Math.round(this._)} / ${}`;
     markupElements.currentWeatherType.textContent = this._getDescriptionFromWeatherCode(this._currentWeatherCode);
-    // TODO: setup icon for today
+    markupElements.currentWeatherIcon.src = this._getWeatherIcon(this._currentWeatherCode);
+    console.log(markupElements.currentWeatherIcon);
     markupElements.currentCity.textContent = this._currentCity;
 
     this._getAverageTemperatures();
@@ -35,9 +46,51 @@ export default class Weather {
       markupElements.dailyTemperatures[i].textContent = this._averageTemperatures[i] + "°";
       const minMaxText = `min ${Math.round(this._dailyMinTemperatures[i])}° / max ${Math.round(this._dailyMaxTemperatures[i])}°`;
       markupElements.dailyMinMaxTemperatures[i].textContent = minMaxText;
-      // TODO: setup icons
+      markupElements.dailyWeatherIcons[i].src = this._getWeatherIcon(this._dailyWeatherCodes[i]);
     }
   }
+
+  _getWeatherIcon = (weatherCode) => {
+    switch (weatherCode) {
+      case 0:
+      case 1:
+        return clearDayIcon;
+      case 2:
+      case 3:
+        return cloudyIcon;
+      case 45:
+      case 48:
+        return fogIcon;
+      case 51:
+      case 53:
+      case 56:
+      case 61:
+      case 63:
+      case 66:
+        return rainIcon;
+      case 55:
+      case 57:
+      case 65:
+      case 67:
+      case 80:
+      case 81:
+      case 82:
+      case 83:
+        return rainfallIcon;
+      case 71:
+      case 73:
+        return snowIcon;
+      case 75:
+      case 77:
+      case 85:
+      case 86:
+        return snowfallIcon;
+      case 95:
+      case 96:
+      case 99:
+        return thunderstormIcon;
+    }
+  };
 
   _getDayName(dateString, locale = "en-US") {
     const date = new Date(dateString);

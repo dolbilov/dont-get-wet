@@ -13,13 +13,13 @@ const coordsObject = new Coords(updateForecast, markupElements.currentCity);
 const api = new Api();
 
 const handleSuccess = (pos) => {
-  updateForecast(pos.coords, "Your city")
-}
+  updateForecast(pos.coords, "Your city");
+};
 
 const handleError = (err) => {
   if (err) console.warn(`ERROR ${err.code}: ${err.message}`);
   updateForecast(Coords.defaultCoords, "Moscow");
-}
+};
 
 function updateForecast(coords, cityName) {
   api
@@ -27,7 +27,6 @@ function updateForecast(coords, cityName) {
     .then((data) => {
       data.current_city = cityName;
       const weather = new Weather(data);
-
       weather.showWeather(constants.markupElements);
     })
     .catch(api.handleError);

@@ -50,6 +50,7 @@
         height: 42px;
       }
     }
+
     &_size {
       &_small {
         margin-top: 15px;
@@ -75,6 +76,7 @@
     grid-area: temperature-place;
     @include font-setting(300, 48px, 59px, $text-color, 1);
     margin-top: 20px;
+
     &_size {
       &_small {
         @include font-setting(400, 36px, 44px, $text-color, 1);
@@ -93,6 +95,7 @@
         grid-area: weather;
         @include font-setting(400, 14px, 90%, $text-color, 1);
       }
+
       &_delta-temperature {
         grid-area: delta-temperature;
         font-family: "Roboto", Arial, Helvetica, sans-serif;
@@ -102,6 +105,7 @@
         z-index: 0;
       }
     }
+
     &_font-size {
       &_small {
         @include font-setting(700, 14px, 16px, $text-color, 0.7);
