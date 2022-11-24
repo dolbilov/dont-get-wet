@@ -58,7 +58,7 @@ export default class DropdownList {
       this._changeCurrentPlace(evt);
 
       const currentCoords = this.getCurrentCoords();
-      this._onChangeHandler(currentCoords);
+      this._onChangeHandler(currentCoords, this.currentPosition);
     });
   }
 }

@@ -9,18 +9,26 @@ import DropdownList from "../components/DropdownList.js";
 import { markupElements } from "../utils/constants";
 
 const dropdownList = new DropdownList("dropdown", constants.cityCoords, updateForecast);
-const coordsObject = new Coords(updateForecast);
+const coordsObject = new Coords(updateForecast, markupElements.currentCity);
 const api = new Api();
 
+const handleSuccess = (pos) => {
+  updateForecast(pos.coords, "Your city")
+}
 
-function updateForecast(coords) {
+const handleError = (err) => {
+  if (err) console.warn(`ERROR ${err.code}: ${err.message}`);
+  updateForecast(Coords.defaultCoords, "Moscow");
+}
+
+function updateForecast(coords, cityName) {
   api
     .getWeatherData(coords)
     .then((data) => {
-      data.current_city = dropdownList.currentPosition;
+      data.current_city = cityName;
       const weather = new Weather(data);
+
       weather.showWeather(constants.markupElements);
-      markupElements.currentCity.textContent = "Your city";
     })
     .catch(api.handleError);
 }
@@ -28,4 +36,4 @@ function updateForecast(coords) {
 
 dropdownList.setEventListener();
 
-coordsObject.getUserCoords();
+coordsObject.getUserCoords(handleSuccess, handleError);
