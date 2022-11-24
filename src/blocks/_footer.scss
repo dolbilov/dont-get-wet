@@ -1,3 +1,6 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variable";
+
 .footer {
   background-color: $bg-footer;
   padding: 50px 0 40px;
@@ -32,11 +35,11 @@
   &__icon {
     width: 19px;
     height: 19px;
-    @include background-setting(url(../image/social.svg), contain);
+    @include background-setting(url(../images/social.svg), contain);
   }
 
   &__link {
     text-decoration: none;
-    @include font-setting(300, 16px, 19px, $text-color, 0.8);    
+    @include font-setting(300, 16px, 19px, $text-color, 0.8);
   }
 }

@@ -1,3 +1,6 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variable";
+
 .dropdown {
   display: flex;
   flex-direction: column;

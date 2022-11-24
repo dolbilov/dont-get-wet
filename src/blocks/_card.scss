@@ -1,3 +1,6 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variable";
+
 .card {
   box-sizing: border-box;
   background: $bg-card;
@@ -41,7 +44,7 @@
     &_type {
       &_weather {
         grid-area: icon-weather;
-        @include background-setting(url(../image/icon_weather.svg), contain);
+        background-size: cover;
         margin-top: 20px;
         width: 59px;
         height: 42px;
@@ -92,7 +95,7 @@
       }
       &_delta-temperature {
         grid-area: delta-temperature;
-        font-family: "Roboto";
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
         @include font-setting(700, 16px, 19px, $text-color, 0.7);
         letter-spacing: 0.02em;
         position: relative;
