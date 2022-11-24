@@ -11,6 +11,7 @@ import { markupElements } from "../utils/constants";
 const dropdownList = new DropdownList("dropdown", constants.cityCoords, updateForecast);
 const coordsObject = new Coords(updateForecast, markupElements.currentCity);
 const api = new Api();
+const tempHours = new Date().getHours();
 
 const handleSuccess = (pos) => {
   updateForecast(pos.coords, "Your city");
@@ -32,6 +33,11 @@ function updateForecast(coords, cityName) {
     .catch(api.handleError);
 }
 
+console.log(tempHours);
+if (tempHours > 20 || tempHours < 7) {
+  console.log(1);
+  document.body.style.background = "linear-gradient(180deg, #11212D 6.74%, #253745 57.65%, #4A5C6A 100%)";
+}
 
 dropdownList.setEventListener();
 
