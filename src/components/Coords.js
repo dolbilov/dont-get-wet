@@ -1,23 +1,17 @@
 export default class Coords {
-  constructor(updateForecastFunction) {
+  static defaultCoords = { latitude: 55.7558, longitude: 37.6176 };
+
+  constructor(updateForecastFunction, cityText) {
     this._updateForecast = updateForecastFunction;
-    this._defaultCoords = { latitude: 55.7558, longitude: 37.6176 };
+    this._cityText = cityText;
   }
 
-  _handleSuccess = (pos) => {
-    this._updateForecast(pos.coords);
-  };
-
-  _handleCoordsError = (err) => {
-    console.warn(`ERROR ${err.code}: ${err.message}`);
-    this._updateForecast(this._defaultCoords);
-  };
-
-  getUserCoords = () => {
+  getUserCoords = (successHandler, errorHandler) => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this._handleSuccess, this._handleCoordsError);
+      navigator.geolocation.getCurrentPosition(successHandler, errorHandler);
     } else {
       console.warn(`Geolocation doesn't support`);
+      errorHandler();
     }
   };
 }

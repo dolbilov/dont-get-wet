@@ -57,6 +57,8 @@ export const cityCoords = {
   RostovonDon: { latitude: 47.222, longitude: 39.7203 }
 };
 
+export const mainContainer = document.querySelector('.container__main-container');
+export const allCardsContainer = document.querySelector(".container.container__main-container");
 const largeCard = document.querySelector(".card.card_size_large");
 const smallCardsContainer = document.querySelector(
   ".container.container__small-cards"
