@@ -2,7 +2,7 @@
 @import "../abstracts/variable";
 
 .footer {
-  background-color: $bg-footer;
+  background-color: var(--footer-color);
   padding: 50px 0 40px;
 
   &__text {

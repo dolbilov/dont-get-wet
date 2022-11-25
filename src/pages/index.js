@@ -11,7 +11,20 @@ import { markupElements } from "../utils/constants";
 const dropdownList = new DropdownList("dropdown", constants.cityCoords, updateForecast);
 const coordsObject = new Coords(updateForecast, markupElements.currentCity);
 const api = new Api();
-const tempHours = new Date().getHours();
+
+
+const setTheme = () => {
+  const tempHours = new Date().getHours();
+
+  const preferDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const nightHours = tempHours > 20 || tempHours < 7;
+
+  if (preferDarkTheme || nightHours) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+}
 
 const handleSuccess = (pos) => {
   updateForecast(pos.coords, "Your city");
@@ -22,7 +35,7 @@ const handleError = (err) => {
   updateForecast(Coords.defaultCoords, "Moscow");
 };
 
-function updateForecast(coords, cityName) {
+const updateForecast = (coords, cityName) => {
   api
     .getWeatherData(coords)
     .then((data) => {
@@ -33,11 +46,8 @@ function updateForecast(coords, cityName) {
     .catch(api.handleError);
 }
 
-console.log(tempHours);
-if (tempHours > 20 || tempHours < 7) {
-  console.log(1);
-  document.body.style.background = "linear-gradient(180deg, #11212D 6.74%, #253745 57.65%, #4A5C6A 100%)";
-}
+
+setTheme();
 
 dropdownList.setEventListener();
 

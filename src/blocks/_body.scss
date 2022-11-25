@@ -2,7 +2,7 @@
   font-family: "Rubik", Arial, Helvetica, sans-serif;
   box-sizing: border-box;
   height: 100vh;
-  background: linear-gradient(180deg, #1E69CB 6.74%, rgba(45, 120, 219, 0.82) 53.53%, #8EB1DB 100%);
+  background: var(--background-gradient);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
