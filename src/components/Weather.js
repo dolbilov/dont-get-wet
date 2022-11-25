@@ -28,7 +28,8 @@ export default class Weather {
     markupElements.currentDate.textContent = this._getFormattedDate(this._currentDate);
     markupElements.currentTemperature.textContent = Math.round(this._currentTemperature) + "°";
     // TODO: setup min and max temperatures for today
-    //markupElements.currentMinMaxTemperature.textContent = `${Math.round(this._)} / ${}`;
+    let minMaxText = `min ${Math.round(this._dailyMinTemperatures[0])}° / max ${Math.round(this._dailyMaxTemperatures[0])}°`;
+    markupElements.currentMinMaxTemperature.textContent = minMaxText;
     markupElements.currentWeatherType.textContent = this._getDescriptionFromWeatherCode(this._currentWeatherCode);
     markupElements.currentWeatherIcon.src = this._getWeatherIcon(this._currentWeatherCode);
     markupElements.currentCity.textContent = this._currentCity;
@@ -36,16 +37,18 @@ export default class Weather {
     this._getAverageTemperatures();
 
     // setup small cards
-    for (let i = 1; i < this._dailyDates.length; i++) {
-      markupElements.dailyWeekdays[i].textContent = this._getDayName(this._dailyDates[i]) + ",";
-    }
 
-    for (let i = 0; i < this._dailyDates.length; i++) {
-      markupElements.dailyDates[i].textContent = this._getFormattedDate(this._dailyDates[i]);
-      markupElements.dailyTemperatures[i].textContent = this._averageTemperatures[i] + "°";
-      const minMaxText = `min ${Math.round(this._dailyMinTemperatures[i])}° / max ${Math.round(this._dailyMaxTemperatures[i])}°`;
+    console.log(markupElements.dailyWeekdays);
+    for (let i = 1; i < this._dailyDates.length - 1; i++) {
+      markupElements.dailyWeekdays[i].textContent = this._getDayName(this._dailyDates[i + 1]) + ",";
+    }
+    for (let i = 0; i < this._dailyDates.length - 1; i++) {
+
+      markupElements.dailyDates[i].textContent = this._getFormattedDate(this._dailyDates[i + 1]);
+      markupElements.dailyTemperatures[i].textContent = this._averageTemperatures[i + 1] + "°";
+      minMaxText = `min ${Math.round(this._dailyMinTemperatures[i + 1])}° / max ${Math.round(this._dailyMaxTemperatures[i + 1])}°`;
       markupElements.dailyMinMaxTemperatures[i].textContent = minMaxText;
-      markupElements.dailyWeatherIcons[i].src = this._getWeatherIcon(this._dailyWeatherCodes[i]);
+      markupElements.dailyWeatherIcons[i].src = this._getWeatherIcon(this._dailyWeatherCodes[i + 1]);
     }
   }
 
