@@ -36,7 +36,7 @@ const handleError = (err) => {
   updateForecast(Coords.defaultCoords, "Moscow");
 };
 
-const updateForecast = (coords, cityName) => {
+function updateForecast(coords, cityName) {
   api
     .getWeatherData(coords)
     .then((data) => {
