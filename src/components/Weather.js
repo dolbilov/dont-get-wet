@@ -37,7 +37,7 @@ export default class Weather {
 
     // setup small cards
     for (let i = 1; i < this._dailyDates.length; i++) {
-      markupElements.dailyWeekdays[i].textContent = this._getDayName(this._dailyDates[i]);
+      markupElements.dailyWeekdays[i].textContent = this._getDayName(this._dailyDates[i]) + ",";
     }
 
     for (let i = 0; i < this._dailyDates.length; i++) {
