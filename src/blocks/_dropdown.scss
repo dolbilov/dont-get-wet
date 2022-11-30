@@ -1,0 +1,65 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variable";
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 1025px;
+  min-width: 220px;
+  @media screen and (max-width: 768px) {
+    max-width: 220px;
+  }
+  position: relative;
+
+  &__button {
+    margin: 0;
+    padding: 12px 20px;
+    border: 0;
+    max-width: 1025px;
+    min-width: 220px;
+    background-color: var(--dropdown-background);
+    @include font-setting(400, 16px, 19px, $text-color, 0.6);
+    text-align: start;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__select {
+    margin: 0;
+    padding: 4px 0;
+    list-style: none;
+    width: 100%;
+    border-radius: 15px;
+    background-color: var(--dropdown-background);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    top: 45px;
+    left: 0;
+
+    &_close {
+      display: none;
+    }
+  }
+
+  &__option {
+    @include font-setting(400, 16px, 19px, $text-color, 0.6);
+    padding: 0 20px;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    height: 25px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

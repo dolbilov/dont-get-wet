@@ -1,0 +1,16 @@
+$text-color: #000;
+$bg-dropdown-btn: rgba(228, 226, 220, 0.8);
+
+
+:root {
+  --background-gradient: linear-gradient(180deg, #1e69cb 6.74%, rgba(45, 120, 219, 0.82) 53.53%, #8eb1db 100%);
+  --primary-background-color: rgba(212, 228, 240, 0.9);
+  --dropdown-background: #fff;
+  --footer-color: #e5f1f3;
+}
+
+html[data-theme="dark"] {
+  --background-gradient: linear-gradient(180deg, #11212d 6.74%, #253745 57.65%, #4a5c6a 100%);
+  --dropdown-background: #e4e2dc;
+  --footer-color: #ccd0cf;
+}

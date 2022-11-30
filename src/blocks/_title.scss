@@ -1,0 +1,14 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variable";
+
+.title {
+  &_place {
+    &_footer {
+      @include font-setting(500, 16px, 19px, $text-color, 0.8);
+    }
+
+    &_links {
+      @include font-setting(400, 16px, 19px, $text-color, 0.9);
+    }
+  }
+}

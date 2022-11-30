@@ -1,0 +1,10 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variable";
+
+.subtitle {
+  &_place {
+    &_footer {
+      @include font-setting(300, 16px, 19px, $text-color, 0.8);
+    }
+  }
+}

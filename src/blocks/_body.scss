@@ -1,0 +1,13 @@
+.body {
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  height: 100vh;
+  background: var(--background-gradient);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+  }
+}
