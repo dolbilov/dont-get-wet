@@ -9,6 +9,9 @@ export default class DropdownList {
       this._dropdownContainer.querySelector(".dropdown__button");
     this._dropdownList =
       this._dropdownContainer.querySelector(".dropdown__select");
+    this._dropdownOptions = Array.from(
+      this._dropdownList.querySelectorAll(".dropdown__option")
+    );
     this.currentPosition = "Moscow";
     this._openDropdownList = this._openDropdownList.bind(this);
     this._closeDropdownList = this._closeDropdownList.bind(this);
@@ -46,19 +49,33 @@ export default class DropdownList {
     }
   }
 
+  _changeCurrentPlaceFromKey(evt) {
+    if (evt.target.classList.contains("dropdown__option") && evt.key === "Enter" || evt.key === " ") {
+      this.currentPosition = evt.target.textContent;
+      this._dropdownButton.textContent = this.currentPosition;
+      this._closeDropdownList();
+    }
+  }
+
   getCurrentCoords() {
     return this._cityCoords[this.currentPosition.split(" ").join("")];
   }
 
-  setEventListener() {
+  setEventListener() {    
     document.addEventListener("click", (evt) => {
       this._handleClose(evt);
     });
+
     this._dropdownList.addEventListener("click", (evt) => {
       this._changeCurrentPlace(evt);
-
       const currentCoords = this.getCurrentCoords();
       this._onChangeHandler(currentCoords, this.currentPosition);
     });
+
+    this._dropdownList.addEventListener("keydown", (evt) => {
+      this._changeCurrentPlaceFromKey(evt);
+      const currentCoords = this.getCurrentCoords();
+      this._onChangeHandler(currentCoords, this.currentPosition);
+    });    
   }
 }
