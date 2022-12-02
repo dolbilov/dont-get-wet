@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="html" lang="ru">
+<html class="html" lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta
@@ -37,23 +37,25 @@
 
   <title>Don't Get Wet</title>
 </head>
+
 <body class="body">
-<main class="container container__main-container" style="visibility: hidden">
+<main class="container container__main-container">
   <div class="container dropdown">
-    <button class="dropdown__button">Select a location</button>
-    <ul class="dropdown__select dropdown__select_close">
-      <li class="dropdown__option">Moscow</li>
-      <li class="dropdown__option">Saint Petersburg</li>
-      <li class="dropdown__option">Novosibirsk</li>
-      <li class="dropdown__option">Yekaterinburg</li>
-      <li class="dropdown__option">Kazan</li>
-      <li class="dropdown__option">Nizhny Novgorod</li>
-      <li class="dropdown__option">Chelyabinsk</li>
-      <li class="dropdown__option">Samara</li>
-      <li class="dropdown__option">Omsk</li>
-      <li class="dropdown__option">Rostov on Don</li>
-    </ul>
-  </div>
+    <button tabindex="1" class="dropdown__button">Select a location</button>
+    <ul tabindex="2" class="dropdown__select dropdown__select_close">
+      <li tabindex="3" class="dropdown__option">Moscow</li>
+      <li tabindex="4" class="dropdown__option">Saint Petersburg</li>
+      <li tabindex="5" class="dropdown__option">Novosibirsk</li>
+      <li tabindex="6" class="dropdown__option">Yekaterinburg</li>
+      <li tabindex="7" class="dropdown__option">Kazan</li>
+      <li tabindex="8" class="dropdown__option">Nizhny Novgorod</li>
+      <li tabindex="9" class="dropdown__option">Chelyabinsk</li>
+      <li tabindex="10" class="dropdown__option">Samara</li>
+      <li tabindex="11" class="dropdown__option">Omsk</li>
+      <li tabindex="12" class="dropdown__option">Rostov on Don</li>
+    </ul> <!-- /.dropdown__select dropdown__select_close -->
+  </div> <!-- ./container dropdown -->
+
   <div class="card card_size_large">
     <p class="card__city-name">Moscow</p>
     <p class="card__date card__date_weight_light">
@@ -66,7 +68,8 @@
     <p class="card__caption card__caption_type_delta-temperature">
       2° / 0°
     </p>
-  </div>
+  </div> <!-- /.card card_size_large -->
+
   <div class="container container__small-cards">
     <div class="card card_size_small">
       <p class="card__date card__date_position_small-card">
@@ -86,7 +89,8 @@
       <p class="card__caption card__caption_type_delta-temperature card__caption_font-size_small">
         min -2° / max 0°
       </p>
-    </div>
+    </div> <!-- /.card card_size_small -->
+
     <div class="card card_size_small">
       <p class="card__date card__date_position_small-card">
         <span class="card__weekday">Tomorrow2,</span>
@@ -104,7 +108,8 @@
       <p class="card__caption card__caption_type_delta-temperature card__caption_font-size_small">
         min -2° / max 0°
       </p>
-    </div>
+    </div> <!-- /.card card_size_small -->
+
     <div class="card card_size_small">
       <p class="card__date card__date_position_small-card">
         <span class="card__weekday">Tomorrow3,</span>
@@ -122,9 +127,10 @@
       <p class="card__caption card__caption_type_delta-temperature card__caption_font-size_small">
         min -2° / max 0°
       </p>
-    </div>
-  </div>
+    </div> <!-- /.card card_size_small -->
+  </div> <!-- /.container container__small-cards -->
 </main>
+
 <footer class="footer">
   <div class="container container__footer">
     <div class="footer__text">
@@ -133,7 +139,8 @@
         A&nbsp;simple web application to&nbsp;check the weather forecast
         in&nbsp;your city
       </p>
-    </div>
+    </div> <!-- ./footer__text -->
+
     <div class="footer__social">
       <ul class="footer__links">
         <h4 class="title title_place_links">Programmers:</h4>
@@ -147,16 +154,17 @@
           >@konstantin_buzunov</a
           >
         </li>
-      </ul>
+      </ul>  <!-- /.footer__links -->
+
       <ul class="footer__links">
         <h4 class="title title_place_links">Designers:</h4>
         <li class="footer__item">
           <div class="footer__icon"></div>
           <a class="footer__link" href="https://t.me/rbbakov" target="_blank">@rbbakov</a>
         </li>
-      </ul>
-    </div>
-  </div>
+      </ul> <!-- /.footer__links -->
+    </div> <!-- /.footer__social -->
+  </div> <!-- /.container container__footer -->
 </footer>
 </body>
 </html>

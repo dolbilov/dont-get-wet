@@ -34,11 +34,10 @@ export default class Weather {
     markupElements.currentWeatherIcon.src = this._getWeatherIcon(this._currentWeatherCode);
     markupElements.currentCity.textContent = this._currentCity;
 
-    this._getAverageTemperatures();
 
     // setup small cards
+    this._getAverageTemperatures();
 
-    console.log(markupElements.dailyWeekdays);
     for (let i = 1; i < this._dailyDates.length - 1; i++) {
       markupElements.dailyWeekdays[i].textContent = this._getDayName(this._dailyDates[i + 1]) + ",";
     }
